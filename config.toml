@@ -1,4 +1,7 @@
+title = "Zsargul's Webpage"
 baseURL = 'http://example.org/'
 languageCode = 'en-us'
-title = "Zsargul's Webpage"
-theme = 'lugo'
+
+[params]
+# related = "Related:"
+favicon = "/favicon.ico"
