@@ -3,5 +3,7 @@ baseURL = 'http://example.org/'
 languageCode = 'en-us'
 
 [params]
-# related = "Related:"
-favicon = "/favicon.ico"
+# related = 'Related:'
+favicon = '/favicon.ico'
+datesinlist = true
+showrss = false
