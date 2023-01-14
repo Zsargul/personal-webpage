@@ -9,8 +9,8 @@
 {{- range (sort .Pages "Title") }}
 	<li>
 		<a href="{{ .RelPermalink }}">
-			{{- if eq .Title "Blogs"}}
-				Blog Posts
+			{{- if eq .Title "Blog Articles"}}
+				Blog Articles
 			{{ else if eq .Title "Books" }}
 				Books
 			{{ end -}}
