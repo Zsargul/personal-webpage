@@ -43,3 +43,8 @@ footer {
 #nextart,#prevart {
 	max-width: 33% ;
 }
+
+#noContent {
+	font-weight: bold;
+	text-align: center;
+}

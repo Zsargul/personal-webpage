@@ -6,11 +6,17 @@
 {{ .Content }}
 
 <ul>
-{{- range.Pages }}
-	<li>
-		{{- if .Param "datesinlist" }} &lsqb;<time datetime="{{ .Date | time.Format ":date_medium" }}">{{ .Date | time.Format ":date_medium" }}</time>&rsqb; {{ end -}}
-		<a href="{{ .RelPermalink }}">{{ .Title }}</a>
-	</li>
-{{- end }}
+	<!-- If no posts have been made yet, display message -->
+	{{- $posts := (where .Site.RegularPages "Section" .Section) }}
+	{{- if eq (len $posts) 0 }}
+		<p id="noContent">Nothing here yet!</p>
+	{{ else }}
+		{{- range.Pages }}
+			<li>
+				{{- if .Param "datesinlist" }} &lsqb;<time datetime="{{ .Date | time.Format ":date_medium" }}">{{ .Date | time.Format ":date_medium" }}</time>&rsqb; {{ end -}}
+				<a href="{{ .RelPermalink }}">{{ .Title }}</a>
+			</li>
+		{{- end }}
+	{{- end }}
 </ul>
 {{- end }}
