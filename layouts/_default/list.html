@@ -5,18 +5,19 @@
 {{ define "main" -}}
 {{ .Content }}
 
-<ul>
-	<!-- If no posts have been made yet, display message -->
-	{{- $posts := (where .Site.RegularPages "Section" .Section) }}
-	{{- if eq (len $posts) 0 }}
-		<p id="noContent">Nothing here yet!</p>
-	{{ else }}
-		{{- range.Pages }}
-			<li>
-				{{- if .Param "datesinlist" }} &lsqb;<time datetime="{{ .Date | time.Format ":date_medium" }}">{{ .Date | time.Format ":date_medium" }}</time>&rsqb; {{ end -}}
-				<a href="{{ .RelPermalink }}">{{ .Title }}</a>
-			</li>
+<!-- If no posts have been made yet, display message -->
+{{- $posts := (where .CurrentSection.Pages "Permalink" "ne" .Permalink) }}
+{{- if eq (len $posts) 0 }}
+	<p id="noContent">Nothing here yet!</p>
+{{ else }}
+	<ul>
+			<!-- Display date & time only in lists containing regular pages, not sections -->
+			{{- range .CurrentSection.Pages }}
+				<li>
+					{{- if and (.Param "datesInList") (.IsPage) }} &lsqb;<time datetime="{{ .Date | time.Format ":date_medium" }}">{{ .Date | time.Format ":date_medium" }}</time>&rsqb; {{ end -}}
+					<a href="{{ .RelPermalink }}">{{ .Title }}</a>
+				</li>
+			{{- end }}
 		{{- end }}
-	{{- end }}
-</ul>
+	</ul>
 {{- end }}

@@ -5,8 +5,15 @@ body {
 }
 
 main {
-	max-width: 800px ;
+	max-width: 950px ;
 	margin: auto ;
+	border: 2px solid #000000 ;
+	border-radius: 10px ;
+	background: #000000 ;
+	padding-left: 10px ;
+	padding-right: 10px ;
+	padding-top: 2px ;
+	padding-bottom: 2px ;
 }
 
 img {
@@ -15,8 +22,27 @@ img {
 
 header h1 {
 	text-align: center ;
+	margin: 0px ;
 }
 
+/* Navigation bar */
+nav {
+	font-size: 18px ;
+	text-align: center ;
+	padding-bottom: 10px ;
+}
+
+nav ul {
+	list-style-type: none ;
+	margin: 0 ;
+	padding: 0 ;
+}
+
+nav li {
+	display: inline ;
+}
+
+/* Footer */
 footer {
 	text-align: center ;
 	clear: both ;
@@ -45,6 +71,17 @@ footer {
 }
 
 #noContent {
-	font-weight: bold;
-	text-align: center;
+	font-weight: bold ;
+	text-align: center ;
+}
+
+/* Links */
+a:link {
+	text-decoration: none ;
+}
+
+a:hover {
+}
+
+a:active {
 }
